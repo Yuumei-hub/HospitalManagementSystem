@@ -153,7 +153,6 @@ namespace HospitalManagementSystem
             this.label2.Size = new System.Drawing.Size(155, 26);
             this.label2.TabIndex = 5;
             this.label2.Text = "CONTROLLER";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox1
             // 
@@ -215,7 +214,6 @@ namespace HospitalManagementSystem
             this.label5.Size = new System.Drawing.Size(35, 38);
             this.label5.TabIndex = 11;
             this.label5.Text = "»";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -261,7 +259,6 @@ namespace HospitalManagementSystem
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(731, 512);
             this.panel1.TabIndex = 14;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnSave
             // 
@@ -367,7 +364,6 @@ namespace HospitalManagementSystem
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 8;
             this.label8.Text = "Name";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txtPid
             // 
@@ -439,7 +435,6 @@ namespace HospitalManagementSystem
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(731, 512);
             this.panel2.TabIndex = 19;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // comboBox3
             // 
@@ -481,7 +476,6 @@ namespace HospitalManagementSystem
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(360, 22);
             this.textBox5.TabIndex = 12;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox4
             // 
@@ -587,7 +581,6 @@ namespace HospitalManagementSystem
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(740, 515);
             this.panel3.TabIndex = 17;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // dataGridView2
             // 
@@ -598,7 +591,6 @@ namespace HospitalManagementSystem
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(709, 450);
             this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // label24
             // 
