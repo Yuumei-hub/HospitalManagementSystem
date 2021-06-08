@@ -24,10 +24,14 @@ namespace HospitalManagementSystem
             label5.ForeColor = Color.Black;
             label6.ForeColor = Color.Black;
             label7.ForeColor = Color.Black;
+            label25.ForeColor = Color.Black;
+
 
             panel1.Visible = true;
             panel2.Visible = false;
             panel3.Visible = false;
+            panel4.Visible = false;
+
 
         }
 
@@ -37,10 +41,14 @@ namespace HospitalManagementSystem
             label5.ForeColor = Color.Red;
             label6.ForeColor = Color.Black;
             label7.ForeColor = Color.Black;
+            label25.ForeColor = Color.Black;
+
 
             panel1.Visible = false;
             panel2.Visible = true;
             panel3.Visible = false;
+            panel4.Visible = false;
+
 
         }
 
@@ -50,11 +58,14 @@ namespace HospitalManagementSystem
             label5.ForeColor = Color.Black;
             label6.ForeColor = Color.Red;
             label7.ForeColor = Color.Black;
+            label25.ForeColor = Color.Black;
+
 
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = true;
-            
+            panel4.Visible = false;
+
 
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HospitalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection conn = new SqlConnection(connectionString);
@@ -74,10 +85,13 @@ namespace HospitalManagementSystem
             label5.ForeColor = Color.Black;
             label6.ForeColor = Color.Black;
             label7.ForeColor = Color.Red;
+            label25.ForeColor = Color.Black;
+
 
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
+            panel4.Visible = false;
 
         }
 
@@ -91,6 +105,7 @@ namespace HospitalManagementSystem
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
+            panel4.Visible = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,6 +113,7 @@ namespace HospitalManagementSystem
 
         }
 
+        //AddPatient'daki save butonu
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -166,6 +182,7 @@ namespace HospitalManagementSystem
             }
         }
 
+        //Add Diagnosisdeki save butonu
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -210,6 +227,135 @@ namespace HospitalManagementSystem
             comboBox3.ResetText();
 
             panel2.Visible=false;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //User butonu
+        private void User_Click(object sender, EventArgs e)
+        {
+            label4.ForeColor = Color.Black;
+            label5.ForeColor = Color.Black;
+            label6.ForeColor = Color.Black;
+            label7.ForeColor = Color.Black;
+            label25.ForeColor = Color.Red;
+
+
+            panel1.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = true;
+
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HospitalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadOnly;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Doctors", conn);
+            SqlDataAdapter DA = new SqlDataAdapter(cmd);
+            DataSet DS = new DataSet();
+            DA.Fill(DS);
+
+            dataGridView3.DataSource = DS.Tables[0];
+        }
+        private void deleteUserbtn_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = true;
+            panel7.Visible = false;
+        }
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
+
+        private void dataGridView3_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //New user add
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string newusername = textBox3.Text;
+            string newpassword = textBox6.Text;
+            int newauthority;
+
+            if (comboBox4.Text == "Doctor")
+                newauthority = 2;
+            else
+                newauthority = 1;
+
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HospitalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Doctors(Username,Password,Authority)" +
+                " VALUES(@username,@password,@authority)", conn);
+
+
+            cmd.Connection = conn;
+            cmd.Parameters.AddWithValue("username", newusername);
+            cmd.Parameters.AddWithValue("password", newpassword);
+            cmd.Parameters.AddWithValue("authority", newauthority);
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("New user has been added.");
+
+            textBox3.Clear();
+            textBox6.Clear();
+            comboBox4.Text = "";
+        }
+
+        private void updateUsers_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = false;
+            panel7.Visible = true;
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HospitalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection conn = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand("DELETE from Doctors where Id=@Id", conn);
+            cmd.Connection = conn;
+            cmd.Parameters.AddWithValue("Id", textBox8.Text);
+            conn.Open();
+            cmd.ExecuteNonQuery();
         }
     }
 }
